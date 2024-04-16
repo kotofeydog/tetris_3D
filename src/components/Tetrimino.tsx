@@ -25,7 +25,7 @@ export const Tetriminos: { [key: string]: TetriminoDefinition } = {
       { x: -1, y: 0, z: 0 },
       { x: 1, y: 1, z: 0 }
     ],
-    color: '#ff9562',
+    color: '#00FFFF',
   },
   BlueRicky: {
     blocks: [
@@ -34,7 +34,7 @@ export const Tetriminos: { [key: string]: TetriminoDefinition } = {
       { x: -1, y: 0, z: 0 },
       { x: -1, y: 1, z: 0 }
     ],
-    color: '#5eaeff',
+    color: '#32CD32',
   },
   ClevelandZ: {
     blocks: [
@@ -43,7 +43,7 @@ export const Tetriminos: { [key: string]: TetriminoDefinition } = {
       { x: 0, y: -1, z: 0 },
       { x: -1, y: -1, z: 0 }
     ],
-    color: '#de5f75',
+    color: '#F08080',
   },
   RhodeIslandZ: {
     blocks: [
@@ -52,7 +52,7 @@ export const Tetriminos: { [key: string]: TetriminoDefinition } = {
       { x: 0, y: -1, z: 0 },
       { x: 1, y: -1, z: 0 }
     ],
-    color: '#79dd53',
+    color: '#DC143C',
   },
   Hero: {
     blocks: [
@@ -61,7 +61,7 @@ export const Tetriminos: { [key: string]: TetriminoDefinition } = {
       { x: 1, y: 0, z: 0 },
       { x: 2, y: 0, z: 0 }
     ],
-    color: '#3fdcd5',
+    color: '#FFFF00',
   },
   Teewee: {
     blocks: [
@@ -70,7 +70,7 @@ export const Tetriminos: { [key: string]: TetriminoDefinition } = {
       { x: 1, y: 0, z: 0 },
       { x: 0, y: 1, z: 0 }
     ],
-    color: '#af60ff',
+    color: '#D2691E',
   },
   Smashboy: {
     blocks: [
@@ -79,7 +79,7 @@ export const Tetriminos: { [key: string]: TetriminoDefinition } = {
       { x: 0, y: -1, z: 0 },
       { x: 1, y: -1, z: 0 }
     ],
-    color: '#ffff4d',
+    color: '#FF00FF',
   }
 };
 export const Cube: React.FC<{ position: Block; color: string }> = ({ position, color }) => {
@@ -96,7 +96,6 @@ export const Cube: React.FC<{ position: Block; color: string }> = ({ position, c
   );
 };
 
-// 所有方块构成的整体
 export const Tetrimino: React.FC<TetriminoProps> = ({ type, position, blocks, scale = 1 }) => {
   const tetriminoColor = Tetriminos[type].color;
 
@@ -111,7 +110,7 @@ export const Tetrimino: React.FC<TetriminoProps> = ({ type, position, blocks, sc
   );
 };
 
-// 已经下落的方块集合
+
 export const FallenCubes: React.FC<{ gridState: (string | null)[][][] }> = ({ gridState }) => {
   const cubes = [];
 

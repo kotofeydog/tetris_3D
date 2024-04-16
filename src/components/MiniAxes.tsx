@@ -28,12 +28,8 @@ const MiniAxes: React.FC<MiniAxesProps> = ({ position = [0, 0, 0], cameraDirecti
             arrows.push(arrow);
             groupRef.current.add(arrow);
         };
-
-        // 正负X轴
         createArrow(new Vector3(1, 0, 0), new Vector3(0, 0, 0), new Color(xColor));
         createArrow(new Vector3(-1, 0, 0), new Vector3(0, 0, 0), new Color(xColor));
-
-        // 正负Z轴
         createArrow(new Vector3(0, 0, 1), new Vector3(0, 0, 0), new Color(yColor));
         createArrow(new Vector3(0, 0, -1), new Vector3(0, 0, 0), new Color(yColor));
     };
@@ -60,16 +56,16 @@ const MiniAxes: React.FC<MiniAxesProps> = ({ position = [0, 0, 0], cameraDirecti
     return (
         <group ref={groupRef}>
             <Html position={[axisLength, 0, 0]} center>
-                <div className="axis-label">A</div>
+                <div className="axis-label">4</div>
             </Html>
             <Html position={[-axisLength, 0, 0]} center>
-                <div className="axis-label">D</div>
+                <div className="axis-label">6</div>
             </Html>
             <Html position={[0, 0, axisLength]} center>
-                <div className="axis-label">W</div>
+                <div className="axis-label">8</div>
             </Html>
             <Html position={[0, 0, -axisLength]} center>
-                <div className="axis-label">S</div>
+                <div className="axis-label">2</div>
             </Html>
         </group>
     );

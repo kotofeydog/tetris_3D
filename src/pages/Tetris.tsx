@@ -1,4 +1,4 @@
-/* 游戏整体渲染逻辑 */
+/* Общая логика рендеринга игры */
 
 import { Html, OrbitControls } from '@react-three/drei';
 import { Canvas } from '@react-three/fiber';
@@ -190,7 +190,8 @@ const Tetris: React.FC = () => {
             if (isValidPosition(predictedBlocksPosition)) {
                 setPosition([x, newY, z]);
             } else {
-                addBlockToGrid(blocks.map(block => ({ x: block.x + x, y: block.y + y, z: block.z + z })), Tetriminos[type].color); // 使用当前位置
+                addBlockToGrid(blocks.map(block => ({ x: block.x + x, y: block.y + y, z: block.z + z })), Tetriminos[type].color); 
+                //Использовать текущее местоположение
                 generateNewTetrimino();
             }
         }, 1000) as unknown as number;
@@ -260,28 +261,28 @@ const Tetris: React.FC = () => {
 
         switch (e.key.toUpperCase()) {
 
-            case 'W':
+            case '8':
                 if (azimuthAngle >= 0 && azimuthAngle < Math.PI / 4) {
                     z -= 1;
                 } else {
                     x -= 1;
                 }
                 break;
-            case 'S':
+            case '2':
                 if (azimuthAngle >= 0 && azimuthAngle < Math.PI / 4) {
                     z += 1;
                 } else {
                     x += 1;
                 }
                 break;
-            case 'A':
+            case '4':
                 if (azimuthAngle >= 0 && azimuthAngle < Math.PI / 4) {
                     x -= 1;
                 } else {
                     z += 1;
                 }
                 break;
-            case 'D':
+            case '6':
                 if (azimuthAngle >= 0 && azimuthAngle < Math.PI / 4) {
                     x += 1;
                 } else {
@@ -293,11 +294,11 @@ const Tetris: React.FC = () => {
                 newBlocks = blocks.map(block => ({ x: block.x, y: block.z, z: -block.y }));
                 break;
 
-            case 'E':
+            case 'W':
                 newBlocks = blocks.map(block => ({ x: -block.z, y: block.y, z: block.x }));
                 break;
 
-            case 'R':
+            case 'E':
                 newBlocks = blocks.map(block => ({ x: block.y, y: -block.x, z: block.z }));
                 break;
             case ' ':
@@ -435,7 +436,7 @@ const Tetris: React.FC = () => {
 
                 { }
                 <div className='game-canvas-right'>
-                    <Canvas style={{ width: '100%', height: '100%' }}>
+                    <Canvas style={{ width: '100%', height: '100%', }}>
                         <ambientLight />
 
                         {nextType && (
@@ -445,7 +446,7 @@ const Tetris: React.FC = () => {
                                 </Html>
                                 <Tetrimino
                                     type={nextType}
-                                    position={[0.4, 1.6, 0]}
+                                    position={[0.9, 1.6, 0]}
                                     blocks={Tetriminos[nextType].blocks}
                                     scale={0.15} />
 
@@ -459,9 +460,9 @@ const Tetris: React.FC = () => {
                                 <li><strong>Drag:</strong> <span>Mouse</span></li>
                                 <li><strong>Rotate:</strong>
                                     <ul>
-                                        <li><strong>X-axis:</strong> Q</li>
-                                        <li><strong>Y-axis:</strong> E</li>
-                                        <li><strong>Z-axis:</strong> R</li>
+                                        <li><strong>X-axis:</strong> Q </li>
+                                        <li><strong>Y-axis:</strong> W </li>
+                                        <li><strong>Z-axis:</strong> E </li>
                                     </ul>
                                 </li>
                                 <li><strong>Hard Drop:</strong> <span>Space</span></li>
